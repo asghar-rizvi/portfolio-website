@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asghar Qamber Rizvi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            height: 250px; /* Ensures all cards are the same height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 100%; /* Force uniform height */
+            object-fit: cover; /* Prevents stretching */
+            transition: transform 0.3s, filter 0.3s;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(30%);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+        
+        .overlay h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .overlay p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            #projects .row {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 15px;
+                padding: 10px;
+                scroll-behavior: smooth;
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                touch-action: pan-x;
+                -webkit-overflow-scrolling: touch;
+            }
+        
+            /* Hide scrollbar */
+            #projects .row::-webkit-scrollbar {
+                display: none;
+            }
+        
+            /* Project cards for swipe */
+            #projects .col {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 300px;
+                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+        
+            /* Active Center Project */
+            #projects .col.active {
+                opacity: 1;
+                transform: scale(1);
+            }
+        
+            /* Previous & Next Project */
+            #projects .col.prev,
+            #projects .col.next {
+                opacity: 0.8;
+            }
+        }
+        @media (max-width: 768px) {
+            /* Reduce project card size on mobile */
+            .project-card {
+                height: 160px; /* Reduce height */
+            }
+        
+            .project-card img {
+                height: 100%;
+                object-fit: cover; /* Ensures no stretching */
+            }
+        
+        }
+        
+    </style>
+</head>
+<body>
+     <!-- Projects Section -->
+     <div id = 'projects' class="container text-center mt-5">
+        <h2 class="mb-4 text-white">Portfolio</h2>
+        <p>I have worked on several projects, Here are some of them.</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Project 1 -->
+             <a href="https://github.com/asghar-rizvi/Health-Risk-Prediction-Platform-with-Flask-and-Machine-Learning" target="_blank">
+              <div class="col">
+                  <div class="project-card">
+                      <img src="images/projects/1.png" alt="Project 1">
+                      <div class="overlay">
+                          <h5>MediAI Diagnose</h5>
+                          <p>A fusion of "Medical" + "AI", MediAI Diagnose is a powerful AI-driven application designed for doctors to analyze patient data, predict outcomes, and scan medical images.</p>
+                      </div>
+                  </div>
+              </div>
+             </a>
+  
+             <!-- Project 5 -->
+            <a href="https://github.com/asghar-rizvi/Buzz-Chat" target="_blank">
+              <div class="col">
+                <div class="project-card">
+                    <img src="images/projects/5.png" alt="Project 5">
+                    <div class="overlay">
+                        <h5>Buzz-Chat</h5>
+                        <p> A real-time chat app with Django, WebSockets, and Memurai, enabling instant messaging, friend requests, and interactive chats.</p>
+                    </div>
+                </div>
+            </div>
+              </a>
+  
+            <!-- Project 2 -->
+             <a href="https://github.com/asghar-rizvi/AI-Lawyer-with-GUI" target="_blank">
+              <div class="col">
+                          <div class="project-card">
+                              <img src="images/projects/2.png" alt="Project 2">
+                              <div class="overlay">
+                                  <h5>AI - Lawyer</h5>
+                                  <p>A custom LLM trained for legal advices and summarizing legal documents and providing a legal guide on different tasks</p>
+                              </div>
+                          </div>
+                      </div>
+             </a>
+  
+  
+           <!-- Project 3 -->
+            <a href="https://github.com/asghar-rizvi/Movie_Recommendation_System" target="_blank">
+              <div class="col">
+                          <div class="project-card">
+                              <img src="images/projects/3.png" alt="Project 3">
+                              <div class="overlay">
+                                  <h5>Movie Recommendation</h5>
+                                  <p>A content based recommendation system to recommend movies, trained using a simple logic of cosine similarity and just basic stats</p>
+                              </div>
+                          </div>
+                      </div>
+            </a>
+  
+            
+           <!-- Project 4 -->
+          <a href="https://github.com/asghar-rizvi/Django-ML-Apps/tree/main/Resume_Categorize" target="_blank">
+  
+              <div class="col">
+                  <div class="project-card">
+                      <img src="images/projects/4.png" alt="Project 4">
+                      <div class="overlay">
+                          <h5>AI-Powered Resume & Placement Analyzer</h5>
+                          <p>An AI system that classifies resumes and predicts job placement. Users upload resumes to get instant insights</p>
+                      </div>
+                  </div>
+              </div>
+  
+          </a>
+            
+            <!-- Project 6 -->
+          <a href="https://github.com/asghar-rizvi/Deep_Learning_Projects/tree/main/CNN_Models/Object_Detector" target="_blank">
+              <div class="col">
+                  <div class="project-card">
+                      <img src="images/projects/6.png" alt="Project 6">
+                      <div class="overlay">
+                          <h5>Custom Face Detector</h5>
+                          <p>Built a face detection model from scratch using VGG16 with fine-tuning. Achieved precise face recognition through deep learning optimization and real-world testing.</p>
+                      </div>
+                  </div>
+              </div>
+          </a>
+            
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const projectsRow = document.querySelector("#projects .row");
+            const projectCards = document.querySelectorAll("#projects .col");
+        
+            function updateProjectSlide() {
+                if (window.innerWidth > 768) {
+                    // Remove mobile animations on larger screens
+                    projectCards.forEach(card => card.classList.remove("active", "prev", "next"));
+                    return;
+                }
+        
+                let projectWidth = projectCards[0].offsetWidth ; // Adjust gap size
+                let visibleIndex = Math.round(projectsRow.scrollLeft / projectWidth);
+        
+                // Ensure visibleIndex remains within bounds
+                visibleIndex = Math.max(0, Math.min(visibleIndex, projectCards.length - 1));
+        
+                projectCards.forEach((card, index) => {
+                    card.classList.remove("active", "prev", "next");
+
+                    if (index === visibleIndex) {
+                        card.classList.add("active");
+                    } else if (index === visibleIndex - 1) {
+                        card.classList.add("prev");
+                    } else if (index === visibleIndex + 1) {
+                        card.classList.add("next");
+                    }
+                });
+            }
+        
+            // Apply effect on scroll
+            projectsRow.addEventListener("scroll", updateProjectSlide);
+            window.addEventListener("resize", updateProjectSlide);
+        
+            // Initialize
+            updateProjectSlide();
+        });
+        
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
