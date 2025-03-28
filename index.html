@@ -242,7 +242,7 @@ p {
             box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
         }
 
-
+        
         #projects {
             padding: 2rem 0;
         }
@@ -435,72 +435,347 @@ p {
         }
 
         /*Skill Section*/
-      .skill-card {
-        border: none;
-        border-radius: 10px;
-        transition: transform 0.3s ease-in-out;
-        overflow: hidden;
-        background: linear-gradient(135deg, #1e1e2f, #131722);
-        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-        color: white;
-    }
+        #skills {
+            padding: 2rem 0;
+        }
+        
+        #skills h2 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        #skills h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 3px;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #1e1e2f, #131722);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            transition: all 0.3s ease;
+            border: none;
+            background: #161b22;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .skill-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+        }
+        
+        .skill-card:hover .skill-img {
+            transform: scale(1.1);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Desktop Layout */
+        @media (min-width: 992px) {
+            #skills .row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Tablet Layout */
+        @media (max-width: 991px) and (min-width: 768px) {
+            #skills .row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .skill-card {
+                height: 260px;
+            }
+        }
+        
+        /* Mobile Layout with Swipe Animation */
+        @media (max-width: 767px) {
+            #skills .row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                padding: 1rem 0;
+                margin: 0 -15px;
+                scrollbar-width: none;
+            }
+            
+            #skills .row::-webkit-scrollbar {
+                display: none;
+            }
+            
+            #skills .col {
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+                padding: 0 8px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+            
+            .skill-card {
+                height: 240px;
+            }
+            
+            /* Active card styling */
+            #skills .col.active {
+                transform: scale(1.05);
+                opacity: 1;
+                filter: brightness(1.2);
+                z-index: 2;
+            }
+            
+            /* Adjacent cards styling */
+            #skills .col.prev,
+            #skills .col.next {
+                opacity: 0.85;
+                transform: scale(0.95);
+                filter: brightness(0.8);
+                z-index: 1;
+            }
+            
+            /* Further away cards */
+            #skills .col:not(.active):not(.prev):not(.next) {
+                opacity: 0.6;
+                transform: scale(0.9);
+                filter: brightness(0.6);
+            }
+        }
+        
+        /* Very small mobile devices */
+        @media (max-width: 400px) {
+            .skill-card {
+                height: 220px;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-text {
+                font-size: 0.85rem;
+            }
+        }
 
-    .skill-card:hover {
-        transform: translateY(-10px);
-    }
-
-    .skill-img {
-        width: 100px;
-        height: auto;
-        display: block;
-        margin: 0 auto 10px;
-        transition: opacity 0.4s ease-in-out;
-    }
-
-    .skill-card:hover .skill-img {
-        opacity: 0.2;
-    }
-
-    .skill-card .card-text {
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out;
-    }
-
-    .skill-card:hover .card-text {
-        opacity: 1;
-    }
-
-    .card-footer a {
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .card-footer a:hover {
-        text-decoration: underline;
-    }
+    
 
     .container-fluid {
       width: 100% !important;
       max-width: 100%;
   }
 
-  .contact-card {
-    background: linear-gradient(135deg, #1e1e2f, #131722);
-    color: white;
-    text-align: center;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-}
-
-.icon-style {
-    color: #a855f7;
-}
+    /*Contact Section*/
+    #contact {
+        padding: 2rem 0;
+        background-color: #0d1117;
+    }
+    
+    #contact h2 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    #contact h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #6e48aa 0%, #9d50bb 100%);
+        border-radius: 3px;
+    }
+    
+    .contact-card {
+        background: linear-gradient(135deg, #1e1e2f, #131722);
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: none;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+    }
+    
+    .icon-style {
+        color: #9d50bb;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover .icon-style {
+        transform: scale(1.1);
+    }
+    
+    .contact-card h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Desktop Layout */
+    @media (min-width: 992px) {
+        #contact .row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        #contact .col-md-3 {
+            flex: 0 0 25%;
+            max-width: 300px;
+        }
+    }
+    
+    /* Tablet Layout */
+    @media (max-width: 991px) and (min-width: 768px) {
+        #contact .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        #contact .col-md-3 {
+            width: 100%;
+        }
+        
+        .contact-card {
+            height: 220px;
+        }
+    }
+    
+    /* Mobile Layout with Swipe Animation */
+    @media (max-width: 767px) {
+        #contact .row {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            margin: 0 15px; /* Reduced negative margin */
+            scrollbar-width: none;
+        }
+        
+        #contact .row::-webkit-scrollbar {
+            display: none;
+        }
+        
+        #contact .col-md-3 {
+            flex: 0 0 80%; /* Increased width to show more of adjacent cards */
+            scroll-snap-align: center;
+            padding: 0 8px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            min-width: 0; /* Important for flexbox children */
+        }
+        
+        .contact-card {
+            height: 220px;
+            width: 100% !important;
+            max-width: 100%;
+        }
+        
+        /* Active card styling */
+        #contact .col-md-3.active {
+            transform: scale(1.05);
+            opacity: 1;
+            filter: brightness(1.2);
+            z-index: 2;
+        }
+        
+        /* Adjacent cards styling - made more visible */
+        #contact .col-md-3.prev,
+        #contact .col-md-3.next {
+            opacity: 0.9;
+            transform: scale(0.98);
+            filter: brightness(0.9);
+            z-index: 1;
+        }
+        
+        /* Further away cards - made more visible */
+        #contact .col-md-3:not(.active):not(.prev):not(.next) {
+            opacity: 0.8;
+            transform: scale(0.95);
+            filter: brightness(0.8);
+        }
+    }
+    
+    /* Very small mobile devices */
+    @media (max-width: 400px) {
+        .contact-card {
+            height: 200px;
+            padding: 15px;
+        }
+        
+        .contact-card h5 {
+            font-size: 1.1rem;
+        }
+        
+        .contact-card p {
+            font-size: 0.85rem;
+        }
+    }
 
 /* Social Media Icons */
 .social-icon img {
@@ -726,7 +1001,86 @@ p {
         </div>
 
 
-       
+       <!-- Skills Section -->
+    <br><br>
+
+        <div id="skills" class="container text-center mt-5">
+            <h2 class="text-center text-white mb-4">Skills</h2>
+            
+            <div class="row">
+                <!-- Skill 1 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/1.png" class="skill-img" alt="Python">
+                        <h5 class="card-title">Python</h5>
+                        <p class="card-text">Proficient in Python programming for AI, data science, and web development.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/2.png" class="skill-img" alt="Data Visualization">
+                        <h5 class="card-title">Data Visualization</h5>
+                        <p class="card-text">Skilled in Data Visualization using Matplotlib, Seaborn, and Power BI.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/3.png" class="skill-img" alt="SQL">
+                        <h5 class="card-title">SQL</h5>
+                        <p class="card-text">Experienced in SQL for database management, queries, and data analysis.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/4.png" class="skill-img" alt="Machine Learning">
+                        <h5 class="card-title">Machine Learning</h5>
+                        <p class="card-text">Proficient in scikit-learn for building and evaluating ML models.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/5.png" class="skill-img" alt="CSS">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">Strong knowledge of CSS for styling and designing responsive web pages.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/6.png" class="skill-img" alt="Django">
+                        <h5 class="card-title">Django</h5>
+                        <p class="card-text">Developing web applications using Django with a focus on scalability.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 7 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/9.png" class="skill-img" alt="TensorFlow">
+                        <h5 class="card-title">TensorFlow</h5>
+                        <p class="card-text">Building Models from scratch and using it to solve complex tasks.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 8 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/8.png" class="skill-img" alt="HTML">
+                        <h5 class="card-title">HTML</h5>
+                        <p class="card-text">Expert in HTML for structuring and designing modern web pages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <br><br>
 
@@ -921,6 +1275,184 @@ p {
                     observer.disconnect();
                 }
             });
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const skillsRow = document.querySelector("#skills .row");
+        const skillCards = document.querySelectorAll("#skills .col");
+        
+        if (window.innerWidth <= 767) {
+            console.log('Initializing mobile skills carousel');
+            
+            // Reset all cards initially
+            resetAllCards();
+            
+            // Use IntersectionObserver with proper thresholds
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const visibleCard = entry.target;
+                        updateActiveCard(visibleCard);
+                    }
+                });
+            }, {
+                root: skillsRow,
+                threshold: 0.7,
+                rootMargin: "0px"
+            });
+
+            // Observe all cards
+            skillCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            function updateActiveCard(activeCard) {
+                // First reset all cards
+                resetAllCards();
+                
+                // Then set the active card
+                activeCard.classList.add('active');
+                console.log('Active skill card:', Array.from(skillCards).indexOf(activeCard) + 1);
+                
+                // Set prev/next classes if they exist
+                const index = Array.from(skillCards).indexOf(activeCard);
+                if (index > 0) {
+                    skillCards[index - 1].classList.add('prev');
+                }
+                if (index < skillCards.length - 1) {
+                    skillCards[index + 1].classList.add('next');
+                }
+            }
+
+            function resetAllCards() {
+                skillCards.forEach(card => {
+                    card.classList.remove('active', 'prev', 'next');
+                });
+            }
+
+            // Initial active card
+            if (skillCards.length > 0) {
+                updateActiveCard(skillCards[0]);
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 767) {
+                    resetAllCards();
+                    observer.disconnect();
+                } else {
+                    skillCards.forEach(card => observer.observe(card));
+                    updateActiveCard(skillCards[0]);
+                }
+            });
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const contactRow = document.querySelector("#contact .row");
+        const contactCards = document.querySelectorAll("#contact .col-md-3");
+        
+        if (window.innerWidth <= 767) {
+            // 1. First reset all classes
+            contactCards.forEach(card => {
+                card.classList.remove('active', 'prev', 'next');
+            });
+            
+            // 2. Set initial active states
+            contactCards[0].classList.add('active');
+            if (contactCards.length > 1) {
+                contactCards[1].classList.add('next');
+            }
+            
+            // 3. Force scroll to start - THREE DIFFERENT APPROACHES TO ENSURE IT WORKS
+            // Approach 1: Immediate scroll
+            contactRow.scrollLeft = 0;
+            
+            // Approach 2: RAF scroll
+            requestAnimationFrame(() => {
+                contactRow.scrollLeft = 0;
+            });
+            
+            // Approach 3: Delayed scroll as fallback
+            setTimeout(() => {
+                contactRow.scrollTo({
+                    left: 0,
+                    behavior: 'auto'
+                });
+                
+                // One more check after scrolling
+                requestAnimationFrame(() => {
+                    if (contactRow.scrollLeft !== 0) {
+                        contactRow.scrollLeft = 0;
+                    }
+                });
+            }, 100);
+    
+            // Improved IntersectionObserver with better initialization
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const visibleCard = entry.target;
+                        setActiveCard(visibleCard);
+                    }
+                });
+            }, {
+                root: contactRow,
+                threshold: 0.7,
+                rootMargin: "0px"
+            });
+    
+            // Observe all cards
+            contactCards.forEach(card => {
+                observer.observe(card);
+                
+                // Additional safeguard - check if card is first one
+                if (card === contactCards[0]) {
+                    const observerCallback = (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                setActiveCard(card);
+                                observer.unobserve(card); // Stop observing after first detection
+                            }
+                        });
+                    };
+                    
+                    // Create a separate observer just for the first card
+                    const firstCardObserver = new IntersectionObserver(observerCallback, {
+                        root: contactRow,
+                        threshold: 0.7
+                    });
+                    firstCardObserver.observe(card);
+                }
+            });
+    
+            function setActiveCard(activeCard) {
+                // Reset all cards first
+                contactCards.forEach(card => {
+                    card.classList.remove('active', 'prev', 'next');
+                });
+                
+                // Set new active card
+                activeCard.classList.add('active');
+                
+                // Set prev/next cards
+                const index = Array.from(contactCards).indexOf(activeCard);
+                if (index > 0) {
+                    contactCards[index - 1].classList.add('prev');
+                }
+                if (index < contactCards.length - 1) {
+                    contactCards[index + 1].classList.add('next');
+                }
+            }
+    
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 767) {
+                    contactCards.forEach(card => {
+                        card.classList.remove('active', 'prev', 'next');
+                    });
+                    observer.disconnect();
+                }
+            }, { passive: true });
         }
     });
 </script>
