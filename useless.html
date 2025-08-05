@@ -2,254 +2,1619 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asghar Qamber Rizvi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Base Styles */
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Lora:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+<style>
+      /* Apply font to headings (h1, h2, h3) */
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+}
+h4 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 450;
+  font-size: 26px;
+}
+
+p {
+  font-family: 'Lora', serif;  /* Paragraphs Font */
+  font-weight: 400;
+  font-size: large;
+}
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #0d1117;
+        color: white;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+    }
+
+    /* Sticky Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0d1117;
+    padding: 10px 0;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;  /* Ensures vertical alignment */
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover{
+    color: white;
+}
+
+/* Underline Animation (Keeps text white on hover) */
+.nav-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #58a6ff;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+   
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Resume Button (Proper Alignment) */
+.resume-btn {
+    background: transparent;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #58a6ff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px; /* Matches the height of other links */
+}
+
+.resume-btn:hover {
+    background: #58a6ff;
+    color: #0d1117;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+    .navbar-container {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px;
+    }
+
+    .resume-btn {
+        display: block;
+        margin: 10px auto;
+    }
+}
+
+
+    /* Sections for Smooth Scrolling */
+    section {
+        padding: 100px;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+    }
+
+    
+        /* About us*/
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff; /* White border */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.6);
         }
         
-        .project-card {
+        .about-text {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+        
+        /* Typing Effect */
+        .typing-container {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #58a6ff;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+            scroll-behavior: smooth;
+            overflow-x: auto;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+            touch-action: pan-x;
+            -webkit-overflow-scrolling: touch;
+        }
+        .tech-stack-container {
             position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            height: 250px; /* Ensures all cards are the same height */
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+        /* Hide scrollbar for Webkit browsers */
+        .tech-stack::-webkit-scrollbar {
+            display: none;
+        }
+        .tech-card {
+            background: #161b22;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .tech-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .tech-card p {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #c9d1d9;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+        }
+
+        
+        #projects {
+            padding: 2rem 0;
+        }
+        
+        #projects h2 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        #projects h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 3px;
+        }
+        
+        #projects p.lead {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+    
+        .project-card {
+            width: 100%;  /* Make sure the card takes full width */
+            height: 250px; /* Set a fixed height (adjust as needed) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Prevent overflow issues */
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: none;
+            background: #161b22;
         }
         
         .project-card img {
-            width: 100%;
-            height: 100%; /* Force uniform height */
-            object-fit: cover; /* Prevents stretching */
-            transition: transform 0.3s, filter 0.3s;
+            width: 110%;  /* Make image fill the card width */
+            height: 100%; /* Make image fill the card height */
+            object-fit: cover; /* Ensures the image covers the entire box without distortion */
+            border-radius: 10px; /* Optional: Matches the card's rounded corners */
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
         
         .project-card:hover img {
             transform: scale(1.05);
-            filter: brightness(30%);
+            filter: brightness(30%) blur(1px);
         }
         
         .overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s ease;
+            background: rgba(13, 17, 23, 0.7);
+            text-align: center;
+            pointer-events: none;
+            
         }
         
         .project-card:hover .overlay {
             opacity: 1;
+            pointer-events: auto;
         }
         
         .overlay h5 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
         }
         
         .overlay p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
         }
-
-        @media (max-width: 768px) {
+        
+        /* Desktop Layout */
+        @media (min-width: 992px) {
+            #projects .row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+        }
+        
+        /* Tablet Layout */
+        @media (max-width: 991px) and (min-width: 768px) {
+            #projects .row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .project-card {
+                height: 240px;
+            }
+        }
+        
+        /* Mobile Layout with Swipe Animation */
+        @media (max-width: 767px) {
             #projects .row {
                 display: flex;
                 flex-wrap: nowrap;
-                gap: 15px;
-                padding: 10px;
-                scroll-behavior: smooth;
                 overflow-x: auto;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-                touch-action: pan-x;
+                scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                padding: 1rem 0;
+                margin: 0 -15px;
+                scrollbar-width: none;
             }
-        
-            /* Hide scrollbar */
+            
             #projects .row::-webkit-scrollbar {
                 display: none;
             }
-        
-            /* Project cards for swipe */
+            
             #projects .col {
-                flex: 0 0 auto;
-                width: 80%;
-                max-width: 300px;
-                transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-                opacity: 0.6;
-                transform: scale(0.9);
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+                padding: 0 8px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
             }
-        
-            /* Active Center Project */
+            
+            .project-card {
+                height: 220px;
+            }
+            
+            /* Active card styling */
             #projects .col.active {
+                transform: scale(1.05); /* Changed from 10.05 to 1.05 */
                 opacity: 1;
-                transform: scale(1);
+                filter: brightness(1.2);
+                z-index: 2;
             }
-        
-            /* Previous & Next Project */
+            
+            
+            /* Adjacent cards styling */
             #projects .col.prev,
             #projects .col.next {
-                opacity: 0.8;
+                opacity: 0.85;
+                transform: scale(0.95);
+                filter: brightness(0.8);
+                z-index: 1;
+            }
+            
+            /* Further away cards */
+            #projects .col:not(.active):not(.prev):not(.next) {
+                opacity: 0.6;
+                transform: scale(0.9);
+                filter: brightness(0.6);
             }
         }
-        @media (max-width: 768px) {
-            /* Reduce project card size on mobile */
+        
+        /* Very small mobile devices */
+        @media (max-width: 400px) {
             .project-card {
-                height: 160px; /* Reduce height */
+                height: 200px;
             }
-        
-            .project-card img {
-                height: 100%;
-                object-fit: cover; /* Ensures no stretching */
+            
+            .overlay h5 {
+                font-size: 1.2rem;
             }
-        
+            
+            .overlay p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /*Skill Section*/
+        #skills {
+            padding: 2rem 0;
         }
         
-    </style>
+        #skills h2 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        #skills h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 3px;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #1e1e2f, #131722);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            transition: all 0.3s ease;
+            border: none;
+            background: #161b22;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .skill-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+        }
+        
+        .skill-card:hover .skill-img {
+            transform: scale(1.1);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Desktop Layout */
+        @media (min-width: 992px) {
+            #skills .row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Tablet Layout */
+        @media (max-width: 991px) and (min-width: 768px) {
+            #skills .row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .skill-card {
+                height: 260px;
+            }
+        }
+        
+        /* Mobile Layout with Swipe Animation */
+        @media (max-width: 767px) {
+            #skills .row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                padding: 1rem 0;
+                margin: 0 -15px;
+                scrollbar-width: none;
+            }
+            
+            #skills .row::-webkit-scrollbar {
+                display: none;
+            }
+            
+            #skills .col {
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+                padding: 0 8px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+            
+            .skill-card {
+                height: 240px;
+            }
+            
+            /* Active card styling */
+            #skills .col.active {
+                transform: scale(1.05);
+                opacity: 1;
+                filter: brightness(1.2);
+                z-index: 2;
+            }
+            
+            /* Adjacent cards styling */
+            #skills .col.prev,
+            #skills .col.next {
+                opacity: 0.85;
+                transform: scale(0.95);
+                filter: brightness(0.8);
+                z-index: 1;
+            }
+            
+            /* Further away cards */
+            #skills .col:not(.active):not(.prev):not(.next) {
+                opacity: 0.6;
+                transform: scale(0.9);
+                filter: brightness(0.6);
+            }
+        }
+        
+        /* Very small mobile devices */
+        @media (max-width: 400px) {
+            .skill-card {
+                height: 220px;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-text {
+                font-size: 0.85rem;
+            }
+        }
+
+    
+
+    .container-fluid {
+      width: 100% !important;
+      max-width: 100%;
+  }
+
+    /*Contact Section*/
+    #contact {
+        padding: 2rem 0;
+        background-color: #0d1117;
+    }
+    
+    #contact h2 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    #contact h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #6e48aa 0%, #9d50bb 100%);
+        border-radius: 3px;
+    }
+    
+    .contact-card {
+        background: linear-gradient(135deg, #1e1e2f, #131722);
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: none;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+    }
+    
+    .icon-style {
+        color: #9d50bb;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover .icon-style {
+        transform: scale(1.1);
+    }
+    
+    .contact-card h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Desktop Layout */
+    @media (min-width: 992px) {
+        #contact .row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        #contact .col-md-3 {
+            flex: 0 0 25%;
+            max-width: 300px;
+        }
+    }
+    
+    /* Tablet Layout */
+    @media (max-width: 991px) and (min-width: 768px) {
+        #contact .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        #contact .col-md-3 {
+            width: 100%;
+        }
+        
+        .contact-card {
+            height: 220px;
+        }
+    }
+    
+    /* Mobile Layout with Swipe Animation */
+    @media (max-width: 767px) {
+        #contact .row {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            margin: 0 15px; /* Reduced negative margin */
+            scrollbar-width: none;
+        }
+        
+        #contact .row::-webkit-scrollbar {
+            display: none;
+        }
+        
+        #contact .col-md-3 {
+            flex: 0 0 80%; /* Increased width to show more of adjacent cards */
+            scroll-snap-align: center;
+            padding: 0 8px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            min-width: 0; /* Important for flexbox children */
+        }
+        
+        .contact-card {
+            height: 220px;
+            width: 100% !important;
+            max-width: 100%;
+        }
+        
+        /* Active card styling */
+        #contact .col-md-3.active {
+            transform: scale(1.05);
+            opacity: 1;
+            filter: brightness(1.2);
+            z-index: 2;
+        }
+        
+        /* Adjacent cards styling - made more visible */
+        #contact .col-md-3.prev,
+        #contact .col-md-3.next {
+            opacity: 0.9;
+            transform: scale(0.98);
+            filter: brightness(0.9);
+            z-index: 1;
+        }
+        
+        /* Further away cards - made more visible */
+        #contact .col-md-3:not(.active):not(.prev):not(.next) {
+            opacity: 0.8;
+            transform: scale(0.95);
+            filter: brightness(0.8);
+        }
+    }
+    
+    /* Very small mobile devices */
+    @media (max-width: 400px) {
+        .contact-card {
+            height: 200px;
+            padding: 15px;
+        }
+        
+        .contact-card h5 {
+            font-size: 1.1rem;
+        }
+        
+        .contact-card p {
+            font-size: 0.85rem;
+        }
+    }
+
+/* Social Media Icons */
+.social-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.social-icon img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+.img-border {
+  border: 2px solid white;  /* White outline */
+  border-radius: 10px; /* Slightly rounded corners */
+  padding: 5px; /* Adds spacing inside the border */
+}
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+/* Base styles for all sections */
+.content-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+/* Entering (Scroll Down) */
+.content-section.show-down {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Exiting (Scroll Down) */
+.content-section.hide-down {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Entering (Scroll Up) */
+.content-section.show-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Exiting (Scroll Up) */
+.content-section.hide-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+/* Project Card Animation Styles */
+.project-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+}
+
+/* Staggered delays for each card */
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.3s; }
+.project-card:nth-child(3) { transition-delay: 0.5s; }
+.project-card:nth-child(4) { transition-delay: 0.7s; }
+.project-card:nth-child(5) { transition-delay: 0.9s; }
+.project-card:nth-child(6) { transition-delay: 1.1s; }
+
+/* When projects section is active */
+#projects.active .project-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card {
+    transition: all 0.4s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.project-card:hover .overlay {
+    background: rgba(0, 0, 0, 0.85);
+}
+</style>
 </head>
 <body>
-     <!-- Projects Section -->
-     <div id = 'projects' class="container text-center mt-5">
-        <h2 class="mb-4 text-white">Portfolio</h2>
-        <p>I have worked on several projects, Here are some of them.</p>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- Project 1 -->
-             <a href="https://github.com/asghar-rizvi/Health-Risk-Prediction-Platform-with-Flask-and-Machine-Learning" target="_blank">
-              <div class="col">
-                  <div class="project-card">
-                      <img src="images/projects/1.png" alt="Project 1">
-                      <div class="overlay">
-                          <h5>MediAI Diagnose</h5>
-                          <p>A fusion of "Medical" + "AI", MediAI Diagnose is a powerful AI-driven application designed for doctors to analyze patient data, predict outcomes, and scan medical images.</p>
-                      </div>
-                  </div>
-              </div>
-             </a>
-  
-             <!-- Project 5 -->
-            <a href="https://github.com/asghar-rizvi/Buzz-Chat" target="_blank">
-              <div class="col">
-                <div class="project-card">
-                    <img src="images/projects/5.png" alt="Project 5">
-                    <div class="overlay">
-                        <h5>Buzz-Chat</h5>
-                        <p> A real-time chat app with Django, WebSockets, and Memurai, enabling instant messaging, friend requests, and interactive chats.</p>
+
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container navbar-container">
+            <!-- Logo -->
+            <a class="logo" href="#">Asghar Qamber Rizvi</a>
+            
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <!-- Resume Button -->
+                    <li class="nav-item">
+                        <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+  <br><br><br><br>
+  <div id="home" class="container text-center mt-5 content-section">
+    <div class="row align-items-center">
+        <!-- Profile Image Section -->
+        <div class="col-lg-4 text-center">
+            <img src="images/about/1.png" class="profile-img" alt="Your Image">
+        </div>
+
+        <!-- About Me Section -->
+        <div id="about" class="col-lg-8 text-start">
+            <h2 class="mt-3 fw-bold">Asghar Qamber Rizvi</h2>
+            <h4 class="typing-container">
+                <span id="typing-text"></span>
+                <span class="cursor">|</span>
+            </h4>
+            
+            <p class="about-text">
+                Passionate AI and software developer with expertise in Machine Learning, Deep Learning, and Backend Development. 
+                I specialize in building AI-driven solutions that solve real-world problems efficiently.
+            </p>
+            <p class="about-text">
+                Currently, I'm exploring Large Language Models (LLMs) and integrating Hugging Face models into real-world applications.
+                With experience in Django & Flask, I build scalable web applications while continuously evolving in the AI and backend ecosystem.
+            </p>
+        </div>
+    </div>
+
+    <!-- Technologies Section -->
+    <h3 class="mt-5 fw-bold">Experienced With</h3>
+
+    <div class="tech-stack-container">
+        <div class="tech-stack ">
+
+            <div class="tech-card">
+                <img src="images/skills/1.png" alt="Python">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/2.png" alt="Django">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/3.png" alt="Flask">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/9.png" alt="Git">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/4.png" alt="Git">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/6.png" alt="PyTorch">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/7.png" alt="PostgreSQL">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/8.png" alt="Docker">
+            </div>
+            <div class="tech-card">
+                <img src="images/skills/5.png" alt="TensorFlow">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <br>
+       <!-- Projects Section -->
+    
+        <div class="container text-center mt-5 content-section" id="projects">
+            <h2 class="text-center text-white mb-4">Portfolio</h2>
+            <p class="lead text-center mb-5">I have worked on several projects. Here are some of my featured works.</p>
+            
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/Health-Risk-Prediction-Platform-with-Flask-and-Machine-Learning" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/1.png" alt="MediAI Diagnose Project">
+                            <div class="overlay">
+                                <h5>MediAI Diagnose</h5>
+                                <p>A fusion of "Medical" + "AI", MediAI Diagnose is a powerful AI-driven application designed for doctors to analyze patient data, predict outcomes, and scan medical images.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/Buzz-Chat" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/5.png" alt="Buzz Chat Project">
+                            <div class="overlay">
+                                <h5>Buzz-Chat</h5>
+                                <p>A real-time chat app with Django, WebSockets, and Memurai, enabling instant messaging, friend requests, and interactive chats.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/AI-Lawyer-with-GUI" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/2.png" alt="AI Lawyer Project">
+                            <div class="overlay">
+                                <h5>AI - Lawyer</h5>
+                                <p>A custom LLM trained for legal advices and summarizing legal documents and providing a legal guide on different tasks.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/Movie_Recommendation_System" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/3.png" alt="Movie Recommendation Project">
+                            <div class="overlay">
+                                <h5>Movie Recommendation</h5>
+                                <p>A content based recommendation system to recommend movies, trained using cosine similarity and basic statistics.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/Django-ML-Apps/tree/main/Resume_Categorize" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/4.png" alt="Resume Analyzer Project">
+                            <div class="overlay">
+                                <h5>AI-Powered Resume Analyzer</h5>
+                                <p>An AI system that classifies resumes and predicts job placement. Users upload resumes to get instant insights.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col">
+                    <a href="https://github.com/asghar-rizvi/Deep_Learning_Projects/tree/main/CNN_Models/Object_Detector" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <img src="images/projects/6.png" alt="Face Detector Project">
+                            <div class="overlay">
+                                <h5>Custom Face Detector</h5>
+                                <p>Built a face detection model from scratch using VGG16 with fine-tuning. Achieved precise face recognition through deep learning optimization.</p>
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+       <!-- Skills Section -->
+    <br><br>
+
+        <div id="skills" class="container text-center mt-5 content-section">
+            <h2 class="text-center text-white mb-4">Skills</h2>
+            
+            <div class="row">
+                <!-- Skill 1 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/1.png" class="skill-img" alt="Python">
+                        <h5 class="card-title">Python</h5>
+                        <p class="card-text">Proficient in Python programming for AI, data science, and web development.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/2.png" class="skill-img" alt="Data Visualization">
+                        <h5 class="card-title">Data Visualization</h5>
+                        <p class="card-text">Skilled in Data Visualization using Matplotlib, Seaborn, and Power BI.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/3.png" class="skill-img" alt="SQL">
+                        <h5 class="card-title">SQL</h5>
+                        <p class="card-text">Experienced in SQL for database management, queries, and data analysis.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/4.png" class="skill-img" alt="Machine Learning">
+                        <h5 class="card-title">Machine Learning</h5>
+                        <p class="card-text">Proficient in scikit-learn for building and evaluating ML models.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/5.png" class="skill-img" alt="CSS">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">Strong knowledge of CSS for styling and designing responsive web pages.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/6.png" class="skill-img" alt="Django">
+                        <h5 class="card-title">Django</h5>
+                        <p class="card-text">Developing web applications using Django with a focus on scalability.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 7 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/9.png" class="skill-img" alt="TensorFlow">
+                        <h5 class="card-title">TensorFlow</h5>
+                        <p class="card-text">Building Models from scratch and using it to solve complex tasks.</p>
+                    </div>
+                </div>
+                
+                <!-- Skill 8 -->
+                <div class="col">
+                    <div class="skill-card">
+                        <img src="images/skills/8.png" class="skill-img" alt="HTML">
+                        <h5 class="card-title">HTML</h5>
+                        <p class="card-text">Expert in HTML for structuring and designing modern web pages.</p>
                     </div>
                 </div>
             </div>
-              </a>
-  
-            <!-- Project 2 -->
-             <a href="https://github.com/asghar-rizvi/AI-Lawyer-with-GUI" target="_blank">
-              <div class="col">
-                          <div class="project-card">
-                              <img src="images/projects/2.png" alt="Project 2">
-                              <div class="overlay">
-                                  <h5>AI - Lawyer</h5>
-                                  <p>A custom LLM trained for legal advices and summarizing legal documents and providing a legal guide on different tasks</p>
-                              </div>
-                          </div>
-                      </div>
-             </a>
-  
-  
-           <!-- Project 3 -->
-            <a href="https://github.com/asghar-rizvi/Movie_Recommendation_System" target="_blank">
-              <div class="col">
-                          <div class="project-card">
-                              <img src="images/projects/3.png" alt="Project 3">
-                              <div class="overlay">
-                                  <h5>Movie Recommendation</h5>
-                                  <p>A content based recommendation system to recommend movies, trained using a simple logic of cosine similarity and just basic stats</p>
-                              </div>
-                          </div>
-                      </div>
-            </a>
-  
-            
-           <!-- Project 4 -->
-          <a href="https://github.com/asghar-rizvi/Django-ML-Apps/tree/main/Resume_Categorize" target="_blank">
-  
-              <div class="col">
-                  <div class="project-card">
-                      <img src="images/projects/4.png" alt="Project 4">
-                      <div class="overlay">
-                          <h5>AI-Powered Resume & Placement Analyzer</h5>
-                          <p>An AI system that classifies resumes and predicts job placement. Users upload resumes to get instant insights</p>
-                      </div>
-                  </div>
-              </div>
-  
-          </a>
-            
-            <!-- Project 6 -->
-          <a href="https://github.com/asghar-rizvi/Deep_Learning_Projects/tree/main/CNN_Models/Object_Detector" target="_blank">
-              <div class="col">
-                  <div class="project-card">
-                      <img src="images/projects/6.png" alt="Project 6">
-                      <div class="overlay">
-                          <h5>Custom Face Detector</h5>
-                          <p>Built a face detection model from scratch using VGG16 with fine-tuning. Achieved precise face recognition through deep learning optimization and real-world testing.</p>
-                      </div>
-                  </div>
-              </div>
-          </a>
-            
         </div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const projectsRow = document.querySelector("#projects .row");
-            const projectCards = document.querySelectorAll("#projects .col");
-        
-            function updateProjectSlide() {
-                if (window.innerWidth > 768) {
-                    // Remove mobile animations on larger screens
-                    projectCards.forEach(card => card.classList.remove("active", "prev", "next"));
-                    return;
-                }
-        
-                let projectWidth = projectCards[0].offsetWidth ; // Adjust gap size
-                let visibleIndex = Math.round(projectsRow.scrollLeft / projectWidth);
-        
-                // Ensure visibleIndex remains within bounds
-                visibleIndex = Math.max(0, Math.min(visibleIndex, projectCards.length - 1));
-        
-                projectCards.forEach((card, index) => {
-                    card.classList.remove("active", "prev", "next");
 
-                    if (index === visibleIndex) {
-                        card.classList.add("active");
-                    } else if (index === visibleIndex - 1) {
-                        card.classList.add("prev");
-                    } else if (index === visibleIndex + 1) {
-                        card.classList.add("next");
+<br><br>
+
+<!-- Contact Me Section -->
+<div id= 'contact' class="container-fluid py-5 text-center text-white content-section">
+  <h2 class="fw-bold">Contact Me</h2>
+  <p>Want Help in anything?</p>
+
+  <!-- Contact Info Cards -->
+  <div class="row justify-content-center">
+      <div class="col-md-3">
+          <div class="card contact-card h-100">
+              <div class="card-body">
+                  <i class="fas fa-home fa-3x icon-style"></i>
+                  <h5 class="mt-3">Location</h5>
+                  <p>Karachi, Pakistan</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="card contact-card h-100">
+              <div class="card-body">
+                  <i class="fas fa-phone fa-3x icon-style"></i>
+                  <h5 class="mt-3">Phone</h5>
+                  <p>(+92) 3312129298</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="card contact-card h-100" style="width: 350px;">
+              <div class="card-body">
+                  <i class="fas fa-envelope fa-3x icon-style"></i>
+                  <h5 class="mt-3">Email</h5>
+                  <p>asgharqamberrozvi@gmail.com</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br><hr>
+
+  <!-- Social Media Links (Using Custom Images) -->
+  <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+      <a href="https://linkedin.com/in/asghar-qamber-rizvi-2ba8472b5" class="social-icon" target="_blank">
+          <img src="icons/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/asghar-rizvi" class="social-icon" target="_blank">
+          <img src="icons/github.png" alt="GitHub">
+      </a>
+      </a>
+  </div>
+</div>
+
+
+  
+
+</div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+  </script>
+  <script>
+    const texts = [
+        "A Data Scientist 🚀",
+        "An AI & ML Enthusiast 🤖",
+        "A Backend Architect 🏗️",
+        "Building Intelligent Systems 📖",
+    
+    ]; // List of titles to cycle through
+
+    let index = 0;        // Current text index
+    let charIndex = 0;    // Current character index
+    let isDeleting = false;
+    const speed = 100;    // Typing speed
+    const pause = 1500;   // Pause before deleting
+    const typingText = document.getElementById("typing-text");
+
+    function typeEffect() {
+        const currentText = texts[index];
+
+        if (isDeleting) {
+            typingText.textContent = currentText.substring(0, charIndex);
+            charIndex--;
+        } else {
+            typingText.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            setTimeout(() => isDeleting = true, pause);  // Start deleting after pause
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % texts.length; // Move to the next title
+        }
+
+        setTimeout(typeEffect, isDeleting ? 50 : speed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeEffect, 500);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('.content-section');
+        let lastScrollPosition = window.scrollY;
+        
+        const observer = new IntersectionObserver((entries) => {
+            const currentScrollPosition = window.scrollY;
+            const scrollDirection = currentScrollPosition > lastScrollPosition ? 'down' : 'up';
+            lastScrollPosition = currentScrollPosition;
+            
+            entries.forEach(entry => {
+                // Clear all animation classes first
+                entry.target.classList.remove('show-down', 'show-up', 'hide-down', 'hide-up');
+                
+                if (entry.isIntersecting) {
+                    // Section is entering viewport
+                    entry.target.classList.add(scrollDirection === 'down' ? 'show-down' : 'show-up');
+                } else {
+                    // Section is exiting viewport
+                    const rect = entry.target.getBoundingClientRect();
+                    const isAboveViewport = rect.bottom < 0;
+                    
+                    if (scrollDirection === 'down' && isAboveViewport) {
+                        // Scrolled down past section (exit downward)
+                        entry.target.classList.add('hide-down');
+                    } else if (scrollDirection === 'up' && rect.top > window.innerHeight) {
+                        // Scrolled up past section (exit upward)
+                        entry.target.classList.add('hide-up');
                     }
-                });
-            }
-        
-            // Apply effect on scroll
-            projectsRow.addEventListener("scroll", updateProjectSlide);
-            window.addEventListener("resize", updateProjectSlide);
-        
-            // Initialize
-            updateProjectSlide();
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
         });
         
+        sections.forEach(section => observer.observe(section));
         
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const projectsSection = document.getElementById('projects');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add active class to trigger card animations
+                    entry.target.classList.add('active');
+                    
+                    // Optional: Reset animations when leaving section
+                    entry.target.addEventListener('mouseenter', () => {
+                        projectCards.forEach(card => {
+                            card.style.transform = 'translateY(-5px)';
+                        });
+                    });
+                    
+                    entry.target.addEventListener('mouseleave', () => {
+                        projectCards.forEach(card => {
+                            card.style.transform = 'translateY(0)';
+                        });
+                    });
+                } else {
+                    // Remove active class when section exits view
+                    entry.target.classList.remove('active');
+                    
+                    // Reset cards for re-animation
+                    projectCards.forEach(card => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                    });
+                }
+            });
+        }, { threshold: 0.2 }); // Trigger when 20% of section is visible
     
+        observer.observe(projectsSection);
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const techStack = document.querySelector(".tech-stack");
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        techStack.addEventListener("touchstart", (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - techStack.offsetLeft;
+            scrollLeft = techStack.scrollLeft;
+        });
+
+        techStack.addEventListener("touchmove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - techStack.offsetLeft;
+            const walk = (x - startX) * 2; // Increase multiplier for faster scroll
+            techStack.scrollLeft = scrollLeft - walk;
+        });
+
+        techStack.addEventListener("touchend", () => {
+            isDown = false;
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const projectsRow = document.querySelector("#projects .row");
+        const projectCards = document.querySelectorAll("#projects .col");
+        
+        if (window.innerWidth <= 767) {
+            
+            // Reset all cards initially
+            resetAllCards();
+            
+            // Use IntersectionObserver with proper thresholds
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const visibleCard = entry.target;
+                        updateActiveCard(visibleCard);
+                    }
+                });
+            }, {
+                root: projectsRow,
+                threshold: 0.7, // Need at least 70% visibility
+                rootMargin: "0px"
+            });
+
+            // Observe all cards
+            projectCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            function updateActiveCard(activeCard) {
+                // First reset all cards
+                resetAllCards();
+                
+                // Then set the active card
+                activeCard.classList.add('active');
+                
+                // Set prev/next classes if they exist
+                const index = Array.from(projectCards).indexOf(activeCard);
+                if (index > 0) {
+                    projectCards[index - 1].classList.add('prev');
+                }
+                if (index < projectCards.length - 1) {
+                    projectCards[index + 1].classList.add('next');
+                }
+            }
+
+            function resetAllCards() {
+                projectCards.forEach(card => {
+                    card.classList.remove('active', 'prev', 'next');
+                });
+            }
+
+            // Initial active card
+            if (projectCards.length > 0) {
+                updateActiveCard(projectCards[0]);
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 767) {
+                    resetAllCards();
+                    observer.disconnect();
+                }
+            });
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const skillsRow = document.querySelector("#skills .row");
+        const skillCards = document.querySelectorAll("#skills .col");
+        
+        if (window.innerWidth <= 767) {
+            console.log('Initializing mobile skills carousel');
+            
+            // Reset all cards initially
+            resetAllCards();
+            
+            // Use IntersectionObserver with proper thresholds
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const visibleCard = entry.target;
+                        updateActiveCard(visibleCard);
+                    }
+                });
+            }, {
+                root: skillsRow,
+                threshold: 0.7,
+                rootMargin: "0px"
+            });
+
+            // Observe all cards
+            skillCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            function updateActiveCard(activeCard) {
+                // First reset all cards
+                resetAllCards();
+                
+                // Then set the active card
+                activeCard.classList.add('active');
+                console.log('Active skill card:', Array.from(skillCards).indexOf(activeCard) + 1);
+                
+                // Set prev/next classes if they exist
+                const index = Array.from(skillCards).indexOf(activeCard);
+                if (index > 0) {
+                    skillCards[index - 1].classList.add('prev');
+                }
+                if (index < skillCards.length - 1) {
+                    skillCards[index + 1].classList.add('next');
+                }
+            }
+
+            function resetAllCards() {
+                skillCards.forEach(card => {
+                    card.classList.remove('active', 'prev', 'next');
+                });
+            }
+
+            // Initial active card
+            if (skillCards.length > 0) {
+                updateActiveCard(skillCards[0]);
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 767) {
+                    resetAllCards();
+                    observer.disconnect();
+                } else {
+                    skillCards.forEach(card => observer.observe(card));
+                    updateActiveCard(skillCards[0]);
+                }
+            });
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const contactRow = document.querySelector("#contact .row");
+        const contactCards = document.querySelectorAll("#contact .col-md-3");
+        
+        if (window.innerWidth <= 767) {
+            // 1. First reset all classes
+            contactCards.forEach(card => {
+                card.classList.remove('active', 'prev', 'next');
+            });
+            
+            // 2. Set initial active states
+            contactCards[0].classList.add('active');
+            if (contactCards.length > 1) {
+                contactCards[1].classList.add('next');
+            }
+            
+            // 3. Force scroll to start - THREE DIFFERENT APPROACHES TO ENSURE IT WORKS
+            // Approach 1: Immediate scroll
+            contactRow.scrollLeft = 0;
+            
+            // Approach 2: RAF scroll
+            requestAnimationFrame(() => {
+                contactRow.scrollLeft = 0;
+            });
+            
+            // Approach 3: Delayed scroll as fallback
+            setTimeout(() => {
+                contactRow.scrollTo({
+                    left: 0,
+                    behavior: 'auto'
+                });
+                
+                // One more check after scrolling
+                requestAnimationFrame(() => {
+                    if (contactRow.scrollLeft !== 0) {
+                        contactRow.scrollLeft = 0;
+                    }
+                });
+            }, 100);
+    
+            // Improved IntersectionObserver with better initialization
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const visibleCard = entry.target;
+                        setActiveCard(visibleCard);
+                    }
+                });
+            }, {
+                root: contactRow,
+                threshold: 0.7,
+                rootMargin: "0px"
+            });
+    
+            // Observe all cards
+            contactCards.forEach(card => {
+                observer.observe(card);
+                
+                // Additional safeguard - check if card is first one
+                if (card === contactCards[0]) {
+                    const observerCallback = (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                setActiveCard(card);
+                                observer.unobserve(card); // Stop observing after first detection
+                            }
+                        });
+                    };
+                    
+                    // Create a separate observer just for the first card
+                    const firstCardObserver = new IntersectionObserver(observerCallback, {
+                        root: contactRow,
+                        threshold: 0.7
+                    });
+                    firstCardObserver.observe(card);
+                }
+            });
+    
+            function setActiveCard(activeCard) {
+                // Reset all cards first
+                contactCards.forEach(card => {
+                    card.classList.remove('active', 'prev', 'next');
+                });
+                
+                // Set new active card
+                activeCard.classList.add('active');
+                
+                // Set prev/next cards
+                const index = Array.from(contactCards).indexOf(activeCard);
+                if (index > 0) {
+                    contactCards[index - 1].classList.add('prev');
+                }
+                if (index < contactCards.length - 1) {
+                    contactCards[index + 1].classList.add('next');
+                }
+            }
+    
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 767) {
+                    contactCards.forEach(card => {
+                        card.classList.remove('active', 'prev', 'next');
+                    });
+                    observer.disconnect();
+                }
+            }, { passive: true });
+        }
+    });
+</script>
+
 </body>
 </html>
